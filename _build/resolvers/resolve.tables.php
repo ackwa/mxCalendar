@@ -27,6 +27,8 @@ if ($object->xpdo) {
             $m->createObjectContainer('mxCalendarCalendars');
             $m->createObjectContainer('mxCalendarFeed');
             $m->createObjectContainer('mxCalendarLog');
+            $m->createObjectContainer('mxCalendarEventTags'); //@ACK
+            $m->createObjectContainer('mxCalendarTag'); //@ACK
 
             $c = $modx->newQuery('mxCalendarCategories');
             $count = $modx->getCount('mxCalendarCategories',$c);

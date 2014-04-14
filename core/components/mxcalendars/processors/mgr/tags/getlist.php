@@ -11,8 +11,7 @@ $query = $modx->getOption('query',$scriptProperties,'');
 $c = $modx->newQuery('mxCalendarTag');
 if (!empty($query)) {
     $c->where(array(
-        'name:LIKE' => '%'.$query.'%',
-        'OR:type:LIKE' => '%'.$query.'%',
+        'name:LIKE' => '%'.$query.'%'
     ));
 }
 $count = $modx->getCount('mxCalendarTag',$c);

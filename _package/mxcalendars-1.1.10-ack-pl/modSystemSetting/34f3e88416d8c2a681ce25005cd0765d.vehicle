@@ -1,0 +1,16 @@
+<?php return array (
+  'unique_key' => 'key',
+  'preserve_keys' => true,
+  'update_object' => false,
+  'namespace' => 'mxcalendars',
+  'resolve' => NULL,
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => '2f24bca58b3492ac1615a55abd212b7f',
+  'package' => 'modx',
+  'class' => 'modSystemSetting',
+  'signature' => '34f3e88416d8c2a681ce25005cd0765d',
+  'native_key' => 'mxcalendars.mgr_allday_start',
+  'object' => '{"key":"mxcalendars.mgr_allday_start","value":"8:00 am","xtype":"textfield","namespace":"mxcalendars","area":"mxcalendars","editedon":null,"name":"mxcalendars.set_mgr_allday_start"}',
+);

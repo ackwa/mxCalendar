@@ -112,6 +112,12 @@ if ($mxcalendar->save() == false) {
             $image->save();
         }
     }
+
+    // Save Tags @ACK
+    if (isset($scriptProperties['tagid'])) {
+        $tags = explode(',', $scriptProperties['tagid']);
+        $mxcalendar->setRelations('mxCalendarEventTags', 'tag_id', $tags);
+    }
     
 }
 

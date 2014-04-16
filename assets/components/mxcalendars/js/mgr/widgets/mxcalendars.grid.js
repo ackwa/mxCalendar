@@ -316,6 +316,38 @@ mxcCore.window.CreateCal = function (config) {
                                 anchor: '100%',
                                 value: config.record.categoryid
                             }
+                            ,
+                            {//@ack crea
+                                xtype: 'superboxselect',
+                                displayField: 'name',
+                                valueField: 'id',
+                                forceSelection: true,
+                                store: new Ext.data.JsonStore({
+                                    root: 'results',
+                                    idProperty: 'id',
+                                    url: mxcCore.config.connectorUrl,
+                                    baseParams: {
+                                        action: 'stores/gettags'
+                                        //eventid: config.record.id
+                                    },
+                                    fields: [
+                                        'id', 'name'
+                                    ]
+                                }),
+                                mode: 'remote',
+                                triggerAction: 'all',
+                                fieldLabel: _('mxcalendars.tab_tag'),
+                                name: 'tagid',
+                                hiddenName: 'tagid',
+                                id: 'ctagid',
+                                allowBlank: true,
+                                typeAhead: true,
+                                minChars: 1,
+                                emptyText: _('mxcalendars.label_select_tags'),
+                                valueNotFoundText: _('mxcalendars.label_select_tags_err'),
+                                anchor: '100%',
+                                value: config.record.tagid
+                            }
                         ]
                     },
                     {
@@ -760,6 +792,7 @@ mxcCore.window.CreateCal = function (config) {
                     , active: Ext.getCmp('cactive').getValue() === true ? 1 : 0
                     ,description: Ext.getCmp('cdescription').getValue()
                     ,categoryid: Ext.getCmp('ccategoryid').getValue() //req
+                    ,tagid: Ext.getCmp('ctagid').getValue() //req
                     , allday: Ext.getCmp('callday').getValue() === true ? 1 : 0
                     ,startdate_date: Ext.getCmp('cstartdate_date').getValue() //req
                     , startdate_time: Ext.getCmp('cstartdate_time').getValue() //req
@@ -957,7 +990,7 @@ mxcCore.window.UpdateCal = function (config) {
                                 anchor: '100%',
                                 value: config.record.categoryid
                             },
-                            {//@ack
+                            {//@ack upd
                                 xtype: 'superboxselect',
                                 displayField: 'name',
                                 valueField: 'id',
@@ -967,8 +1000,7 @@ mxcCore.window.UpdateCal = function (config) {
                                     idProperty: 'id',
                                     url: mxcCore.config.connectorUrl,
                                     baseParams: {
-                                        action: 'stores/gettags',
-                                        eventid: config.record.id
+                                        action: 'stores/gettags'
                                     },
                                     fields: [
                                         'id', 'name'

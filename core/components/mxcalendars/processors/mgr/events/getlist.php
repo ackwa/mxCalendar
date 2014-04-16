@@ -7,7 +7,7 @@ $sort = $modx->getOption('sort',$scriptProperties,'startdate');
 $dir = $modx->getOption('dir',$scriptProperties,'ASC');
 $query = $modx->getOption('query',$scriptProperties,'');
 $historical = $modx->getOption('historical',$scriptProperties,0);
- 
+
 /*
 $c = $xpdo->newQuery('Box');
 $c->innerJoin('BoxOwner','Owner'); // arguments are: className, alias
@@ -133,6 +133,9 @@ foreach ($mxcalendars as $mxc) {
             }
         }
     }
+    $mxcArray['catfriendly'] = implode(', ', $catFriendly);
+
+
     //$mxcArray['tagid'] = implode(',' )
     //@ACK
     $tags = $mxc->getMany('tags');
@@ -142,8 +145,7 @@ foreach ($mxcalendars as $mxc) {
     }
     $mxcArray['tagid'] = implode(',', $tagArray);
 
-    $mxcArray['catfriendly'] = implode(', ', $catFriendly);
-    
+
     $list[]= $mxcArray;
 }
 return $this->outputArray($list,$count);
